@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Inventory</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <h1>Inventory</h1>
+      <p>Current boxes stored in the system.</p>
+    </section>
+
+    <div class="card-grid">
+      {% if data %}
+        {% for box_no, items in data.items() %}
+          <article class="box-card">
+            <div style="display:flex; justify-content:space-between; gap:1rem; align-items:center; margin-bottom:0.75rem;">
+              <div>
+                <h2 style="margin:0;">Box {{ box_no }}</h2>
+                <p style="margin:0.35rem 0 0; color:#6b738d;">{{ items|length }} item{{ items|length != 1 and 's' or '' }}</p>
+              </div>
+              <form method="POST" action="/clear_box">
+                <input type="hidden" name="box_no" value="{{ box_no }}">
+                <button class="clear-button" type="submit">Clear</button>
+              </form>
+            </div>
+            <ul>
+              {% for item in items %}
+              <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </article>
+        {% endfor %}
+      {% else %}
+        <article class="status-card">
+          <p>No boxes currently stored.</p>
+        </article>
+      {% endif %}
+    </div>
+
+    <div style="margin-top:1rem; text-align:center;">
+      <a href="/">Home</a>
+    </div>
+  </main>
+  <script src="/static/main.js"></script>
+</body>
+</html>

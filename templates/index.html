@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>ToolBox System</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <main class="page-shell">
+    <div class="container">
+      <div class="header">
+        <div class="logo-wrap">
+          <img src="/static/logo.png" alt="ToolBox logo" class="brand-logo">
+          <span>ToolBox System</span>
+        </div>
+        <p>Tool Segmentation for Workshops.</p>
+      </div>
+
+      <div class="stats stats-two">
+        <div class="stat-card">
+          <h2>{{ box_count }}</h2>
+          <p>Total Boxes Handoverd</p>
+        </div>
+        <div class="stat-card">
+          <h2>{{ item_count }}</h2>
+          <p>Total Items Handoverd</p>
+        </div>
+      </div>
+
+      <div class="menu-card" onclick="location.href='/handover'">
+        <i class="fa-solid fa-box-open"></i>
+        <div>
+          <h2>Handover</h2>
+          <p>Upload a box image and save detected items.</p>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow"></i>
+      </div>
+
+      <div class="menu-card" onclick="location.href='/receive'">
+        <i class="fa-solid fa-download"></i>
+        <div>
+          <h2>Receive</h2>
+          <p>Verify incoming items and clear the box if complete.</p>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow"></i>
+      </div>
+
+      <div class="menu-card" onclick="location.href='/inventory'">
+        <i class="fa-solid fa-clipboard-list"></i>
+        <div>
+          <h2>Inventory</h2>
+          <p>See all stored boxes and current items.</p>
+        </div>
+        <i class="fa-solid fa-chevron-right arrow"></i>
+      </div>
+  </main>
+  <script src="/static/main.js"></script>
+</body>
+</html>

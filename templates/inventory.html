@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <h1>{{ title }}</h1>
+      <p>Result details for box scanning.</p>
+    </section>
+
+    <section class="status-card">
+      <h2>Box Number</h2>
+      <p>{{ box_no }}</p>
+
+      {% if segmented_path %}
+      <div style="margin-top:1rem;">
+        <h3>Segmented Result</h3>
+        <img src="/uploads/{{ segmented_path }}" alt="Segmented result" style="border-radius:18px;">
+      </div>
+      {% endif %}
+
+      {% if cleared %}
+      <div style="margin-top:1rem; padding:1rem; background:#edfff2; border-radius:18px; border:1px solid #bae7c8;">
+        <h2 style="color:#1f8a46; margin:0;">All items returned.</h2>
+        <p style="margin:0.5rem 0 0;">Box cleared successfully.</p>
+      </div>
+      {% else %}
+      <div style="margin-top:1rem;">
+        <h3>Missing Items</h3>
+        <ul>
+          {% for item in items %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </section>
+
+    <div style="margin-top:1rem; text-align:center;">
+      <a href="/">Home</a>
+    </div>
+  </main>
+  <script src="/static/main.js"></script>
+</body>
+</html>

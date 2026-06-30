@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>{{ action }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <h1>{{ action }}</h1>
+      <p>Use your camera or upload a picture of the box for scanning.</p>
+    </section>
+
+    <section class="form-card">
+      <form id="capture-form" method="POST" enctype="multipart/form-data">
+        <input id="image" type="file" name="image" accept="image/*" capture="environment" required>
+        <label for="image" class="camera-button">Open Camera</label>
+      </form>
+    </section>
+
+    <div style="margin-top:1rem; text-align:center;">
+      <a href="/">Back to Home</a>
+    </div>
+  </main>
+  <script src="/static/main.js"></script>
+</body>
+</html>
